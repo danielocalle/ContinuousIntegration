@@ -1,0 +1,15 @@
+name: Assign New Issues to specific team member (danielocalle)
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write  # Explicitly grants write permission to manage issues
+jobs:
+  assign_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign Issue
+        uses: actions-ecosystem/action-add-assignees@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: danielocalle # Replace X with the GitHub username of the team member
